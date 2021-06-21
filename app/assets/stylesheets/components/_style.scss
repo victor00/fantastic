@@ -82,16 +82,17 @@ body {
         letter-spacing: .1rem;
         margin-bottom: 1rem;
         color: #E54;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 10px;
+            margin-right: 10px;
+            background: #FB5;
+        }
     }
 
-    h2::before {
-        content: '';
-        display: inline-block;
-        width: 40px;
-        height: 10px;
-        margin-right: 10px;
-        background: #FB5;
-    }
 
     p {
         font-family: Helvetica, Arial;
@@ -114,5 +115,101 @@ body {
         border-left: 4px solid #faf6ed;
         border-right: 4px solid #faf6ed;
     }
+
+    &::-webkit-scrollbar-track {
+        background: #faf6ed;
+    }
 }
 
+.animals-description {
+    grid-column: 3;
+
+    section {
+        margin-bottom: 3rem;
+    }
+}
+
+.faq-list {
+    grid-column: 2 / 4;
+
+    dt {
+        font-display: 'Playfair Display SC', georgia;
+        font-weight: bold;
+        margin-top: 2rem;
+        margin-bottom: .5rem;
+        color: #E54;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 10px;
+            margin-right: 10px;
+            background: #FB5;
+        }
+    }
+
+
+
+    dd {
+        font-family: Helvetica, Arial;
+        margin-bottom: .5rem;
+        margin-left: 30px;
+    }
+}
+
+.map {
+    grid-column: 2;
+}
+
+.personal-info {
+    grid-column: 3;
+
+    li {
+        margin-bottom: 1rem;
+        font-family: Helvetica, Arial;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 10px;
+            margin-right: 10px;
+            background: #FB5;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    .menu {
+        margin-top: 0px;
+    }
+
+    .menu,
+    .grid-section {
+        grid-column: 1;
+    }
+
+    .grid-section {
+        grid-template-columns: 100px 1fr;
+        grid-gap: 10px;
+
+        h1 {
+            font-size: 3rem;
+        }
+    }
+
+    .animals-list {
+        grid-column: 1;
+    }
+
+    .faq-list,
+    .personal-info,
+    .map {
+        grid-column: 1 / 3;
+    }
+}
